@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar__projects projects">
+    <div class="projects">
         <div class="projects__header">
             <h2>Projects</h2>
             <button :class="{ 'rotate-180': down }" href="#show-projects" data-toggle="collapse"

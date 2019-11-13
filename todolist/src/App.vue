@@ -72,10 +72,6 @@
     outline: none;
   }
 
-  .w-70 {
-    width: 70%;
-  }
-
   #app {
     display: flex;
     flex-wrap: wrap;
