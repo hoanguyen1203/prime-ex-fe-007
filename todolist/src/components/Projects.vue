@@ -35,7 +35,7 @@
             }
         },
         methods: {
-            toggleRotate: function () {
+            toggleRotate() {
                 if (this.down === true) {
                     this.down = false
                 } else {

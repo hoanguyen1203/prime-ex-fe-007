@@ -13,7 +13,10 @@
 
     export default {
         name: 'Labels',
-        data: function () {
+        components: {
+            Label
+        },
+        data() {
             return {
                 labels: [
                     {
@@ -33,9 +36,6 @@
                     }
                 ]
             }
-        },
-        components: {
-            Label
         }
     }
 </script>

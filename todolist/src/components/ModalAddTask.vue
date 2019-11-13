@@ -31,7 +31,7 @@
 <script>
     export default {
         name: 'ModalAddTask',
-        data: function () {
+        data() {
             return {
                 newTask: '',
                 selected: {}
@@ -52,7 +52,7 @@
             }
         },
         methods: {
-            addTask: function () {
+            addTask() {
                 if (this.newTask !== '') {
                     let dateCreated = this.today.getFullYear() + "/" + (this.today.getMonth() + 1) + "/" + this.today.getDate()
                     this.$store.dispatch('addTask', {

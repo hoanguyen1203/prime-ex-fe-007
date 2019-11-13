@@ -30,9 +30,9 @@
       datesCreated() {
         return this.$store.state.datesCreated
       },
-      sortDate: function () {
+      sortDate() {
         let datesCreated = this.datesCreated
-        return datesCreated.sort(function(a,b){
+        return datesCreated.sort((a,b) => {
           return new Date(b) - new Date(a)
         })
       }

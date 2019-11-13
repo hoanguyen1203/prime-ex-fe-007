@@ -44,6 +44,13 @@ npm run build
 npm run lint
 ```
 
+# User Stories
+- Click Add Project to add a project
+- Choose a name and color for the project
+- Click Button `+` at top right of Website to add a task
+- Choose a name and project for the task, then Save
+- Click a checkbox when task is completed
+
 ## Preview how it work
 
 ![ToDoApp!](https://github.com/hoanguyen1203/prime-ex-fe-007/blob/master/todolist/src/assets/todolist.gif)

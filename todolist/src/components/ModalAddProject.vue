@@ -29,7 +29,7 @@
 <script>
     export default {
         name: 'ModalAddProject',
-        data: function () {
+        data() {
             return {
                 newProject: '',
                 newProjectColor: '#000000'
@@ -41,7 +41,7 @@
             }
         },
         methods: {
-            addProject: function () {
+            addProject() {
                 if (this.newProject !== '') {
                     this.$store.dispatch('addProject', {
                         name: this.newProject,
@@ -54,7 +54,7 @@
                 this.newProjectColor = '#000000'
                 this.saveProjects()
             },
-            saveProjects: function () {
+            saveProjects() {
                 this.$store.dispatch('saveProjects')
             }
         }

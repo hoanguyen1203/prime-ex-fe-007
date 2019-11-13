@@ -54,9 +54,6 @@
             today() {
                 return this.$store.state.today
             }
-        },
-        methods: {
-
         }
     }
 </script>

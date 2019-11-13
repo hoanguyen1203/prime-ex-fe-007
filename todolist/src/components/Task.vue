@@ -24,7 +24,7 @@
             }
         },
         methods: {
-            toggleChecked: function (task) {
+            toggleChecked(task) {
                 task.completed = !task.completed
 
                 // Update Task Completed or Not Completed under LocalStorage
@@ -33,7 +33,10 @@
                         this.tasks[i].completed = task.completed
                     }
                 }
-                localStorage.setItem("tasks", JSON.stringify(this.tasks))
+                this.saveTasks()
+            },
+            saveTasks() {
+                this.$store.dispatch('saveTasks')
             }
         }
     }
