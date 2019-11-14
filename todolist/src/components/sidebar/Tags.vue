@@ -1,24 +1,20 @@
 <template>
-    <div class="labels">
-        <Label
-                v-for="(label, index) in labels"
-                :key="index"
-                :label="label"
-        />
+    <div class="tags">
+        <Tag v-for="(tag, index) in tags" :key="index" :tag="tag"/>
     </div>
 </template>
 
 <script>
-    import Label from './Label.vue'
+    import Tag from '../tag/Tag'
 
     export default {
-        name: 'Labels',
+        name: 'Tags',
         components: {
-            Label
+            Tag
         },
         data() {
             return {
-                labels: [
+                tags: [
                     {
                         name: 'Inbox',
                         icon: 'fa fa-inbox',

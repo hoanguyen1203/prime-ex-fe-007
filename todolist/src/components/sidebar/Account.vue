@@ -1,7 +1,7 @@
 <template>
     <div class="account">
         <div class="account__avatar">
-            <img alt="Avatar" src="../assets/avatar.jpeg">
+            <img alt="Avatar" src="../../assets/avatar.jpeg">
         </div>
         <div class="account__name">
             {{ accountName }}

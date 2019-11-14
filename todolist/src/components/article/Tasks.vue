@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Task from './Task.vue'
+    import Task from '../task/Task'
 
     export default {
         name: 'Tasks',

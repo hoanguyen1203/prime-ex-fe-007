@@ -2,40 +2,27 @@
   <div id="app">
     <Header />
     <Sidebar />
-    <div class="content">
-      <Tasks v-for="(date, index) in sortDate" :key="index" :date="date"/>
-    </div>
+    <Article />
     <ModalAddProject />
     <ModalAddTask />
   </div>
 </template>
 
 <script>
-  import Header from './components/Header.vue'
-  import Sidebar from  './components/Sidebar.vue'
-  import Tasks from  './components/Tasks.vue'
-  import ModalAddProject from './components/ModalAddProject.vue'
-  import ModalAddTask from './components/ModalAddTask.vue'
+  import Header from './components/common/Header'
+  import Sidebar from './components/common/Sidebar'
+  import Article from './components/common/Article'
+  import ModalAddProject from './components/modal/ModalAddProject'
+  import ModalAddTask from './components/modal/ModalAddTask'
 
   export default {
     name: 'app',
     components: {
       ModalAddTask,
       ModalAddProject,
-      Header,
+      Article,
       Sidebar,
-      Tasks
-    },
-    computed: {
-      datesCreated() {
-        return this.$store.state.datesCreated
-      },
-      sortDate() {
-        let datesCreated = this.datesCreated
-        return datesCreated.sort((a,b) => {
-          return new Date(b) - new Date(a)
-        })
-      }
+      Header
     }
   }
 </script>

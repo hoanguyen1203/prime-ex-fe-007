@@ -1,24 +1,24 @@
 <template>
-    <div class="label">
-        <div class="label__title">
-            <div class="label__icon"><i v-bind:class="label.icon"></i></div>
-            <div class="label__name">{{ label.name }}</div>
+    <div class="tags__item tag">
+        <div class="tag__title">
+            <div class="tag__icon"><i v-bind:class="tag.icon"></i></div>
+            <div class="tag__name">{{ tag.name }}</div>
         </div>
-        <div class="label__number">{{ label.number }}</div>
+        <div class="tag__number">{{ tag.number }}</div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Label',
+        name: 'Tag',
         props: [
-            'label'
+            'tag'
         ]
     }
 </script>
 
 <style lang="scss" scoped>
-    .label {
+    .tag {
         display: flex;
         justify-content: space-between;
         align-items: center;
