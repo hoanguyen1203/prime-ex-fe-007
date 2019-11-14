@@ -6,7 +6,6 @@
 
 <script>
     import Tasks from '../article/Tasks'
-
     export default {
         name: 'Article',
         components: {
