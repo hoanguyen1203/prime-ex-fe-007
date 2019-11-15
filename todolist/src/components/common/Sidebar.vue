@@ -1,8 +1,8 @@
 <template>
     <aside class="sidebar">
-        <Account accountName="Justin Pot" />
-        <Tags />
-        <Projects />
+        <account account-name="Justin Pot" />
+        <tags />
+        <projects />
     </aside>
 </template>
 

@@ -1,11 +1,11 @@
 <template>
     <div class="tasks">
         <div class="tasks__header">
-            <div class="tasks__time" v-if="date === today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate()">Today</div>
-            <div class="tasks__time" v-else>{{ days[new Date(date).getDay()] }}</div>
-            <div class="tasks__day">{{ months[date.split("/")[1] - 1] + " " + date.split("/")[2] }}</div>
+            <div class="tasks__time" v-if="checkEquaToday">Today</div>
+            <div class="tasks__time" v-else>{{ showDay }}</div>
+            <div class="tasks__day">{{ showDate }}</div>
         </div>
-        <Task v-for="task in tasks" :key="task.id" :task="task" :date="date" />
+        <task v-for="task in tasks" :key="task.id" :task="task" :date="date" />
     </div>
 </template>
 
@@ -53,6 +53,19 @@
             },
             today() {
                 return this.$store.state.today
+            },
+            checkEquaToday() {
+                let currentDate = this.today.getFullYear()+'/'+(this.today.getMonth()+1)+'/'+this.today.getDate()
+                if (this.date === currentDate) {
+                    return true
+                }
+                return false
+            },
+            showDay() {
+                return this.days[new Date(this.date).getDay()]
+            },
+            showDate() {
+                return this.months[this.date.split("/")[1] - 1] + " " + this.date.split("/")[2]
             }
         }
     }

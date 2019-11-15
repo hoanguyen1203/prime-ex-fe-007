@@ -2,11 +2,11 @@
     <div class="projects">
         <div class="projects__header">
             <h2>Projects</h2>
-            <button :class="{ 'rotate-180': down }" href="#show-projects" data-toggle="collapse"
+            <button v-bind:class="{ 'rotate-180': down }" href="#show-projects" data-toggle="collapse"
                     @click="toggleRotate"><i class="fa fa-angle-up"></i></button>
         </div>
         <div id="show-projects" class="projectList collapse in">
-            <Project v-for="(project, index) in projects" :key="index" :project="project"/>
+            <project v-for="(project, index) in projects" :key="index" :project="project"/>
 
             <button class="project__add" data-toggle="modal" data-target="#modalAddProject">
                 <i class="material-icons">add</i>

@@ -1,11 +1,12 @@
 <template>
     <div class="content">
-        <Tasks v-for="(date, index) in sortDate" :key="index" :date="date"/>
+        <tasks v-for="(date, index) in sortDate" :key="index" :date="date"/>
     </div>
 </template>
 
 <script>
     import Tasks from '../article/Tasks'
+
     export default {
         name: 'Article',
         components: {

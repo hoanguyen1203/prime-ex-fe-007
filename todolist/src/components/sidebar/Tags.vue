@@ -1,6 +1,6 @@
 <template>
     <div class="tags">
-        <Tag v-for="(tag, index) in tags" :key="index" :tag="tag"/>
+        <tag v-for="(tag, index) in tags" :key="index" :tag="tag"/>
     </div>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <Sidebar />
+    <sidebar />
     <Article />
-    <ModalAddProject />
-    <ModalAddTask />
+    <modal-add-project />
+    <modal-add-task />
   </div>
 </template>
 
@@ -69,3 +69,4 @@
     padding: 30px 0;
   }
 </style>
+>

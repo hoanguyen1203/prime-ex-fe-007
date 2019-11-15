@@ -1,5 +1,5 @@
 <template>
-    <div class="task" v-bind:class="{ completed: task.completed }" v-if="task.dateCreated === date">
+    <div class="task" v-bind:class="{ completed: task.completed }" v-if="checkEquaDate">
         <div class="task__header">
             <input type="checkbox" v-model="task.completed" v-bind:value="task.id" @click="toggleChecked(task)" class="task__checkbox">
             <span class="task__name">{{ task.name }}</span>
@@ -21,6 +21,12 @@
         computed: {
             tasks() {
                 return this.$store.state.tasks
+            },
+            checkEquaDate() {
+                if (this.task.dateCreated === this.date) {
+                    return true
+                }
+                return false
             }
         },
         methods: {
