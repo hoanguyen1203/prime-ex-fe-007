@@ -2,7 +2,7 @@
     <div class="projects">
         <div class="projects__header">
             <h2>Projects</h2>
-            <button v-bind:class="{ 'rotate-180': down }" href="#show-projects" data-toggle="collapse"
+            <button v-bind:class="showClassRotate" href="#show-projects" data-toggle="collapse"
                     @click="toggleRotate"><i class="fa fa-angle-up"></i></button>
         </div>
         <div id="show-projects" class="projectList collapse in">
@@ -32,6 +32,9 @@
         computed: {
             projects() {
                 return this.$store.state.projects
+            },
+            showClassRotate() {
+                return { 'rotate-180': this.down }
             }
         },
         methods: {

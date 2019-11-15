@@ -1,7 +1,7 @@
 <template>
     <div class="project">
         <div class="project__title">
-            <div class="project__icon" v-bind:style="{ 'background-color': project.color }"></div>
+            <div class="project__icon" v-bind:style="colorProjectIcon"></div>
             <div class="project__name">{{ project.name }}</div>
         </div>
         <div class="project__number">{{ project.number }}</div>
@@ -13,7 +13,12 @@
         name: 'Project',
         props: [
             'project'
-        ]
+        ],
+        computed: {
+            colorProjectIcon() {
+                return { 'background-color': this.project.color }
+            }
+        }
     }
 </script>
 

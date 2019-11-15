@@ -1,12 +1,12 @@
 <template>
-    <div class="task" v-bind:class="{ completed: task.completed }" v-if="checkEquaDate">
+    <div class="task" v-bind:class="showClassTaskCompleted" v-if="checkEquaDate">
         <div class="task__header">
             <input type="checkbox" v-model="task.completed" v-bind:value="task.id" @click="toggleChecked(task)" class="task__checkbox">
             <span class="task__name">{{ task.name }}</span>
         </div>
         <div class="project">
             <div class="project__name">{{ task.selected.name }}</div>
-            <div class="project__icon" v-bind:style="{ 'background-color': task.selected.color }"></div>
+            <div class="project__icon" v-bind:style="colorProjectIcon"></div>
         </div>
     </div>
 </template>
@@ -22,11 +22,17 @@
             tasks() {
                 return this.$store.state.tasks
             },
+            showClassTaskCompleted() {
+                return { 'completed': this.task.completed }
+            },
             checkEquaDate() {
                 if (this.task.dateCreated === this.date) {
                     return true
                 }
                 return false
+            },
+            colorProjectIcon() {
+                return { 'background-color': this.task.selected.color }
             }
         },
         methods: {
