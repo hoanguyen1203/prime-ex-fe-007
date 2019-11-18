@@ -1,6 +1,7 @@
 <template>
     <div class="task" v-bind:class="showClassTaskCompleted" v-if="checkEquaDate">
         <div class="task__header">
+            <button type="button" class="task__remove" @click="removeTask(task)"><i class="fa fa-trash"></i></button>
             <input type="checkbox" v-model="task.completed" v-bind:value="task.id" @click="toggleChecked(task)" class="task__checkbox">
             <span class="task__name">{{ task.name }}</span>
         </div>
@@ -36,6 +37,18 @@
             }
         },
         methods: {
+            updateId(index) {
+                for (index; index < this.tasks.length; index++) {
+                    if(this.tasks[index].id !== this.tasks.indexOf(this.tasks[index])) {
+                        this.tasks[index].id = this.tasks.indexOf(this.tasks[index])
+                    }
+                }
+            },
+            removeTask(task) {
+                this.tasks.splice(this.tasks.indexOf(task), 1)
+                this.updateId(0)
+                this.saveTasks()
+            },
             toggleChecked(task) {
                 task.completed = !task.completed
 
@@ -61,9 +74,45 @@
         justify-content: space-between;
         padding: 20px 0;
         border-bottom: 1px solid #DCDCDC;
+        &__header {
+            display: flex;
+            align-items: center;
+        }
+        &__remove {
+            width: 25px;
+            height: 25px;
+            i {
+                color: #F08080;
+                font-size: 25px;
+            }
+        }
+        &__checkbox {
+            -webkit-appearance: none;
+            position: relative;
+            width: 25px;
+            height: 25px;
+            border: 1px solid #cccccc;
+            border-radius: 100%;
+            margin: 0 15px;
+            &:focus {
+                outline: none;
+            }
+            &:checked {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 8px;
+                    width: 8px;
+                    height: 15px;
+                    border-bottom: 2px solid #F08080;
+                    border-right: 2px solid #F08080;
+                    transform: rotate(45deg);
+                }
+            }
+        }
         &__name {
             font-size: 20px;
-            margin-left: 10px;
         }
     }
     .project {
