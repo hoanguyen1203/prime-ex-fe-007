@@ -20,6 +20,9 @@
             'date'
         ],
         computed: {
+            projects() {
+                return this.$store.state.projects
+            },
             tasks() {
                 return this.$store.state.tasks
             },
@@ -37,22 +40,42 @@
             }
         },
         methods: {
-            updateId(index) {
+            updateIdTask(index) {
                 for (index; index < this.tasks.length; index++) {
                     if(this.tasks[index].id !== this.tasks.indexOf(this.tasks[index])) {
                         this.tasks[index].id = this.tasks.indexOf(this.tasks[index])
                     }
                 }
             },
+            updateNumberTask(task) {
+                let count = 0
+                for (let i = 0; i < this.tasks.length; i++) {
+                    if(this.tasks[i].selected.name === task.selected.name) {
+                        count++
+                        this.tasks[i].selected.number = count
+                    }
+                }
+                localStorage.setItem('tasks', JSON.stringify(this.tasks))
+            },
+            updateNumberProject(task) {
+                for (let i = 0; i < this.projects.length; i++) {
+                    if(this.projects[i].name === task.selected.name){
+                        this.projects[i].number -= 1
+                    }
+                }
+                localStorage.setItem('projects', JSON.stringify(this.projects))
+            },
             removeTask(task) {
                 this.tasks.splice(this.tasks.indexOf(task), 1)
-                this.updateId(0)
+                this.updateIdTask(0)
+                this.updateNumberTask(task)
+                this.updateNumberProject(task)
                 this.saveTasks()
             },
             toggleChecked(task) {
                 task.completed = !task.completed
 
-                // Update Task Completed or Not Completed under LocalStorage
+                // Update Completed Task or Not Completed under LocalStorage
                 for (let i = 0; i < this.tasks.length; i++) {
                     if(this.tasks[i].id === task.id) {
                         this.tasks[i].completed = task.completed

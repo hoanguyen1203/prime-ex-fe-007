@@ -55,13 +55,14 @@
             addTask() {
                 if (this.newTask !== '') {
                     let dateCreated = this.today.getFullYear() + "/" + (this.today.getMonth() + 1) + "/" + this.today.getDate()
+                    let number = this.selected.number + 1
                     this.$store.dispatch('addTask', {
                         id: this.tasks.length,
                         name: this.newTask,
                         selected: {
                             name: this.selected.name,
                             color: this.selected.color,
-                            number: this.selected.number++
+                            number: number
                         },
                         dateCreated: dateCreated,
                         completed: false
@@ -70,8 +71,8 @@
                     // Save or Update dateCreated under LocalStorage
                     this.saveDateCreated(dateCreated)
 
-                    // Update Project Number under LocalStorage
-                    this.updateProjectNumber()
+                    // Update Number Project under LocalStorage
+                    this.updateNumberProject(number)
 
                 }
                 this.newTask = ''
@@ -94,10 +95,10 @@
                 }
                 this.saveDatesCreated()
             },
-            updateProjectNumber() {
+            updateNumberProject(number) {
                 for (let i = 0; i < this.projects.length; i++) {
                     if(this.projects[i].name === this.selected.name){
-                        this.projects[i].number = this.selected.number
+                        this.projects[i].number = number
                     }
                 }
                 this.saveProjects()
